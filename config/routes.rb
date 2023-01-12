@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "test#index"
   get 'test', to: 'test#index'
+  get 'longest', to: 'test#longest'
 end
