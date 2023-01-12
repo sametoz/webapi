@@ -22,4 +22,31 @@ class TestController < ApplicationController
         render json: { message: longest }
     end
 
+    def add_row_to_posts_table()
+
+        # add some constraints to the title and content
+        if params[:title].to_s.length < 1
+            render json: { message: "title is too short" }
+            return
+        end
+
+        if params[:content].present? == false
+            render json: { message: "content is missing" }
+            return
+        end
+
+        #create a new post
+        post = Post.new
+        post.title = params[:title]
+        post.content = params[:content]
+        post.save
+
+        if post.persisted?
+            render json: { message: "post was created" }
+        else
+            render json: { message: "post was not created" }
+        end
+    end
+
+
 end

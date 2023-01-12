@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root "test#index"
   get 'test', to: 'test#index'
   get 'longest', to: 'test#longest'
+  get 'add_row_to_posts_table', to: 'test#add_row_to_posts_table'
 end
